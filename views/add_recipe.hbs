@@ -1,0 +1,49 @@
+<form>
+    <div class="form-group">
+        <label for="nameDish">Name dish</label>
+        <input type="text" class="form-control" id="nameDish" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="text" class="form-control" id="date" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+    <p id="error-mess"></p>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(function (e) {
+        $('#submit-button').click(e => {
+            e.preventDefault()
+            const nameDish = $('#nameDish').val()
+            const date = $('#date').val()
+
+            console.log(nameDish, date)
+
+
+            // url truyen tham so
+            // recipes/users/add 
+
+
+            $.ajax({
+                url: `/recipes/${id}`,
+                method: 'del',
+                data: JSON.stringify({ nameDish, date }),
+                contentType: 'application/json; charset=utf-8',
+                async: false,
+                success: function (data) {
+                    console.log('success')
+                    alert(data)
+                },
+                error: function (error) {
+                    console.log(error)
+                    alert(JSON.stringify(error, null, 4))
+                }
+
+            });
+
+        })
+    })
+</script>

@@ -1,0 +1,20 @@
+{{data.nameDish}}
+{{data.date}}
+{{data.serving}}
+{{data.complex}}
+{{data.duration}}
+
+<ul>
+    {{#each data.ingredients}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+
+Steps
+<ul>
+    {{#each data.directions}}
+    <li>Step {{inc @index}} {{this}}</li>
+
+    {{#if @last}}<button>Complete this dish</button>{{/if}}
+    {{/each}}
+</ul>

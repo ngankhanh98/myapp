@@ -17,6 +17,10 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, "views/partials"));
+hbs.registerHelper("inc", (value) => value + 1);
+// hbs.registerHelper("inc", function (value) {
+//   return value + 1;
+// });
 
 app.use(logger("dev"));
 app.use(express.json());
